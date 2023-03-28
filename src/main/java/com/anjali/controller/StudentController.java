@@ -73,7 +73,7 @@ public class StudentController {
                 .body(entityModel);
     }
 
-        @DeleteMapping("/student{id}")
+        @DeleteMapping("/student/{id}")
         ResponseEntity<?> deleteStudent(@PathVariable Long id ){
             repository.deleteById(id);
 
