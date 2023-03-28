@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.basecs101</groupId>
-	<artifactId>payroll</artifactId>
+	<groupId>com.anjali</groupId>
+	<artifactId>scholl-management</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>payroll</name>
-	<description>Spring boot payroll application</description>
+	<name>school-management</name>
+	<description>School-Management-application</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
