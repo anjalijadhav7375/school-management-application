@@ -6,6 +6,7 @@ import com.anjali.model.Student;
 import com.anjali.repository.StudentRepository;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,17 +45,17 @@ public class StudentController {
 
     //single item
 
-    @GetMapping("/student{id}")
+    @GetMapping("/student/{id}")
     public EntityModel<Student> one(@PathVariable Long id){
 
         Student student = repository.findById(id)
                 .orElseThrow(()->new StudentNotFoundException(id));
         return assembler.toModel(student);
     }
-    @PutMapping("/student{id}")
-    Student replaceStudent(@RequestBody Student newStudent
-    ,@PathVariable Long id) {
-        return repository.findById(id)
+    @PutMapping("/student/{id}")
+    ResponseEntity<?> replaceStudent(@RequestBody Student newStudent,@PathVariable Long id) {
+
+        Student updateStudent=repository.findById(id)
                 .map(student -> {
                     student.setFirstname(newStudent.getFirstname());
                     student.setLastname(newStudent.getLastname());
@@ -66,10 +67,14 @@ public class StudentController {
                     newStudent.setId(id);
                     return repository.save(newStudent);
                 });
+        EntityModel<Student> entityModel=assembler.toModel(updateStudent);
+        return ResponseEntity
+                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+                .body(entityModel);
     }
 
         @DeleteMapping("/student{id}")
-        ResponseEntity<Student> deleteStudent(@PathVariable Long id ){
+        ResponseEntity<?> deleteStudent(@PathVariable Long id ){
             repository.deleteById(id);
 
             return ResponseEntity.noContent().build();

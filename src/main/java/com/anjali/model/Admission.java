@@ -12,14 +12,14 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-@Table(name = "CUSTOMER_ORDER")
-public class Admision {
+@Table(name = "Student_Admission")
+public class Admission {
     private @Id @GeneratedValue Long id;
-    private String description;
+    private String studentName;
     private Status status;
 
-    public Admision(String description, Status status) {
-        this.description = description;
+    public Admission(String studentName, Status status) {
+        this.studentName = studentName;
         this.status = status;
     }
 }

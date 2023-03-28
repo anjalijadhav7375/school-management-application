@@ -1,6 +1,6 @@
 package com.anjali.configs;
 
-import com.anjali.model.Admision;
+import com.anjali.model.Admission;
 import com.anjali.model.Status;
 import com.anjali.model.Student;
 import com.anjali.repository.AdmissionRepository;
@@ -22,8 +22,8 @@ private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
         log.info("Preloading " + studentRepository.save(new Student("Anjali","Jadhav",101,'A')));
         log.info("Preloading " + studentRepository.save(new Student("Rutuja","kamble",102,'B')));
 
-        log.info("Preloading " + admissionRepository.save(new Admision("Rutuja Kamble", Status.COMPLETED)));
-        log.info("Preloading " + admissionRepository.save(new Admision("Anjali Jadhav",Status.IN_PROGRESS)));
+        log.info("Preloading " + admissionRepository.save(new Admission("Rutuja Kamble", Status.COMPLETED)));
+        log.info("Preloading " + admissionRepository.save(new Admission("Anjali Jadhav",Status.IN_PROGRESS)));
 
     };
 }
