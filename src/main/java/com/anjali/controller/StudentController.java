@@ -6,6 +6,7 @@ import com.anjali.model.Student;
 import com.anjali.repository.StudentRepository;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-
+@RestController
 public class StudentController {
   private final StudentRepository repository;
   private final StudentModelAssembler assembler;
@@ -68,8 +69,10 @@ public class StudentController {
     }
 
         @DeleteMapping("/student{id}")
-                void deleteStudent(@PathVariable Long id ){
+        ResponseEntity<Student> deleteStudent(@PathVariable Long id ){
             repository.deleteById(id);
+
+            return ResponseEntity.noContent().build();
 
         }
 
