@@ -21,9 +21,22 @@ private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
     return args -> {
         log.info("Preloading " + studentRepository.save(new Student("Anjali","Jadhav",101,'A')));
         log.info("Preloading " + studentRepository.save(new Student("Rutuja","kamble",102,'B')));
+        log.info("Preloading " + studentRepository.save(new Student("Ajay","Jadhav",103,'C')));
+        log.info("Preloading " + studentRepository.save(new Student("Pratik","Shinde",104,'D')));
+        log.info("Preloading " + studentRepository.save(new Student("Mahesh","Keskar",105,'B')));
+        log.info("Preloading " + studentRepository.save(new Student("Sakshi","Kasabe",106,'A')));
+        log.info("Preloading " + studentRepository.save(new Student("Saurabh","Jagtap",107,'C')));
+        log.info("Preloading " + studentRepository.save(new Student("Gayatri","Gavali",108,'A')));
+        log.info("Preloading " + studentRepository.save(new Student("Divya","Wadkar",109,'B')));
+        log.info("Preloading " + studentRepository.save(new Student("Vrushab","Kambale",110,'D')));
 
         log.info("Preloading " + admissionRepository.save(new Admission("Rutuja Kamble", Status.COMPLETED)));
+        log.info("Preloading " + admissionRepository.save(new Admission("Ajay Jadhav",Status.IN_PROGRESS)));
         log.info("Preloading " + admissionRepository.save(new Admission("Anjali Jadhav",Status.IN_PROGRESS)));
+        log.info("Preloading " + admissionRepository.save(new Admission(" Pratik Shinde",Status.CANCELLED)));
+        log.info("Preloading " + admissionRepository.save(new Admission(" Saksi Kasabe",Status.COMPLETED)));
+        log.info("Preloading " + admissionRepository.save(new Admission("Divya Wadkar ",Status.CANCELLED)));
+        log.info("Preloading " + admissionRepository.save(new Admission("Mahesh Keskar",Status.IN_PROGRESS)));
 
     };
 }
