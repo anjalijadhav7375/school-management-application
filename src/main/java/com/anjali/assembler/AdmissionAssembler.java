@@ -25,5 +25,6 @@ public class AdmissionAssembler implements RepresentationModelAssembler<Admissio
             admissionModel.add(linkTo(methodOn(AdmissionController.class).complete(admission.getId())).withRel("complete"));
         }
         return admissionModel;
+
     }
 }
