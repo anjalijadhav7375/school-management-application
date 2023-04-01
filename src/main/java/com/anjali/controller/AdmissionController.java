@@ -69,7 +69,7 @@ public class AdmissionController {
                 .header(HttpHeaders.CONTENT_TYPE , MediaTypes.HTTP_PROBLEM_DETAILS_JSON_VALUE)
                 .body(Problem.create()
                         .withTitle("Method not allowed")
-                        .withDetail("You cant cancel an admission that is in the " + "Status"));
+                        .withDetail("You cant cancel an admission that is in the "+ admission.getStatus() + "Status"));
     }
 
     @PutMapping("admission/{id}/complete")
