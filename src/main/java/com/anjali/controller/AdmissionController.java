@@ -72,7 +72,7 @@ public class AdmissionController {
                         .withDetail("You cant cancel an admission that is in the "+ admission.getStatus() + "Status"));
     }
 
-    @PutMapping("admission/{id}/complete")
+    @PutMapping("admissions/{id}/complete")
     public ResponseEntity<?>complete(@PathVariable Long id){
         Admission admission = admissionRepository.findById(id)
                 .orElseThrow(()->new AdmissionNotFoundException(id));
